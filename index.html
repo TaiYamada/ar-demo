@@ -3,12 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPS AR with Camera Background</title>
+    <title>GPS AR Check</title>
 
-    <!-- ✅ A-Frame + AR.js GPS対応版 -->
+    <!-- A-Frame + AR.js（GPS対応） -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/ar.js@latest/aframe/build/aframe-ar-nft.js"></script>
-</head>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene
@@ -17,14 +16,14 @@
       renderer="logarithmicDepthBuffer: true;"
       arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
     >
-      <!-- ✅ 位置情報でモデル表示 -->
-      <a-entity
-        gltf-model="model.glb"
-        gps-entity-place="latitude: 34.709392; longitude: 137.727463"
+      <!-- ✅ チェック用：浜松市役所南側の道路に青いボックスを表示 -->
+      <a-box
+        color="blue"
+        gps-entity-place="latitude: 34.710269; longitude: 137.727361"
         scale="1 1 1"
-      ></a-entity>
+      ></a-box>
 
-      <!-- ✅ カメラ背景 + GPS追跡 -->
+      <!-- ✅ GPSカメラ -->
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   </body>
