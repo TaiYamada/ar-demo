@@ -21,19 +21,17 @@
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene
-      vr-mode-ui="enabled: false"
-      embedded
-      arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
+     embedded
+  　 arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
+     vr-mode-ui="enabled: false"
     >
-      <!-- GPSでモデルを配置 -->
-      <a-entity
-        gltf-model="model.glb"
-        gps-entity-place="latitude: 34.70931408633709; longitude: 137.72721835387125"
-        scale="1 1 1"
-      ></a-entity>
+    <a-entity
+    gltf-model="model.glb"
+    gps-entity-place="latitude: 34.710269; longitude: 137.727361"
+    scale="1 1 1"
+  ></a-entity>
 
-      <!-- 現在地を取得するカメラ -->
-      <a-camera gps-camera rotation-reader></a-camera>
-    </a-scene>
+  <a-camera gps-camera rotation-reader></a-camera>
+</a-scene>
   </body>
 </html>
