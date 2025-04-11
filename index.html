@@ -13,28 +13,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AR.js with Camera Background</title>
+    <title>AR.js with GPS</title>
+
+    <!-- A-Frame & AR.js (location-based対応版) -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="https://unpkg.com/ar.js@3.3.2/aframe/build/aframe-ar-nft.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene
-      embedded
-      arjs
-      renderer="antialias: true; logarithmicDepthBuffer: true"
       vr-mode-ui="enabled: false"
+      embedded
+      arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
     >
-      <!-- カメラ映像を背景として設定 -->
-      <a-marker preset="hiro">
-        <a-entity
-          geometry="primitive: box; height: 1; width: 1; depth: 1"
-          material="color: blue"
-          position="0 0.5 0"
-        ></a-entity>
-      </a-marker>
+      <!-- GPSでモデルを配置 -->
+      <a-entity
+        gltf-model="model.glb"
+        gps-entity-place="latitude: 34.70931408633709; longitude: 137.72721835387125"
+        scale="1 1 1"
+      ></a-entity>
 
-      <!-- カメラ -->
-      <a-entity camera></a-entity>
+      <!-- 現在地を取得するカメラ -->
+      <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   </body>
 </html>
