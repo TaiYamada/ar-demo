@@ -8,33 +8,33 @@
   }
 </script>
 
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <title>Location-based AR</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AR.js with Camera Background</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/ar.js@3.3.2/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
   </head>
   <body style="margin: 0; overflow: hidden;">
     <a-scene
       embedded
-      arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false;"
+      arjs
+      renderer="antialias: true; logarithmicDepthBuffer: true"
       vr-mode-ui="enabled: false"
-      renderer="logarithmicDepthBuffer: true;"
     >
-      <a-assets>
-        <a-asset-item id="model" src="model.glb"></a-asset-item>
-      </a-assets>
+      <!-- カメラ映像を背景として設定 -->
+      <a-marker preset="hiro">
+        <a-entity
+          geometry="primitive: box; height: 1; width: 1; depth: 1"
+          material="color: blue"
+          position="0 0.5 0"
+        ></a-entity>
+      </a-marker>
 
-      <a-entity
-        gltf-model="#model"
-        gps-entity-place="latitude: 34.70931408633709; longitude: 137.72721835387125;"
-        scale="1 1 1"
-      ></a-entity>
-
-      <a-camera gps-camera rotation-reader></a-camera>
+      <!-- カメラ -->
+      <a-entity camera></a-entity>
     </a-scene>
   </body>
 </html>
