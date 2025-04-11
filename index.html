@@ -13,9 +13,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPS AR Demo</title>
+    <title>GPS AR with Camera Background</title>
 
-    <!-- ✅ 正しいライブラリ -->
+    <!-- ✅ A-Frame + AR.js GPS対応版 -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://unpkg.com/ar.js@3.3.2/aframe/build/aframe-ar-nft.js"></script>
   </head>
@@ -26,14 +26,14 @@
       renderer="logarithmicDepthBuffer: true;"
       arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
     >
-      <!-- 📍 位置情報でモデル表示 -->
+      <!-- ✅ 位置情報でモデル表示 -->
       <a-entity
         gltf-model="model.glb"
         gps-entity-place="latitude: 34.710269; longitude: 137.727361"
         scale="1 1 1"
       ></a-entity>
 
-      <!-- 🎥 カメラ背景 + GPS追跡 -->
+      <!-- ✅ カメラ背景 + GPS追跡 -->
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
   </body>
