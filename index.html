@@ -16,13 +16,18 @@
       renderer="logarithmicDepthBuffer: true;"
       arjs="sourceType: webcam; gpsMinAccuracy: 100; debugUIEnabled: false"
     >
+      <!-- ✅ 位置情報でモデル表示 -->
+      <a-entity
+        gltf-model="model.glb"
+        gps-entity-place="latitude: 34.709365; longitude: 137.727404"
+        scale="1 1 1"
+      ></a-entity>
       <!-- ✅ チェック用：浜松市役所南側の道路に青いボックスを表示 -->
       <a-box
         color="blue"
         gps-entity-place="latitude: 34.709365; longitude: 137.727404"
         scale="1 1 1"
       ></a-box>
-
       <!-- ✅ GPSカメラ -->
       <a-camera gps-camera rotation-reader></a-camera>
     </a-scene>
